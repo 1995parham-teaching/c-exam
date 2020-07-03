@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{نقطه گذاری}
+\paragraph{}
+تابع زیر نام دو فایل را دریافت می‌کند.
+این تابع هر خط از فایل اول را خوانده و یک نقطه
+\lr{\textit{'.'}}
+به انتهای آن اضافه کرده و آن را در فایل دوم یادداشت می‌کند.
+
+\begin{latin}
+\begin{lstlisting}[language=c]
+    int add_period(char* f1, char* f2) {
+        // your code goes here
+    }
+\end{lstlisting}
+\end{latin}
+
+برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
+
+\begin{latin}
+\begin{verbatim}
+    Input:
+        Hello world
+        123
+    Output:
+        Hello world.
+        123.
+\end{verbatim}
+
+\begin{verbatim}
+    Input:
+        123123
+    Output:
+        123123.
+\end{verbatim}
+\end{latin}
+
+\paragraph{قسمت اول}
+فرض کنید طول هر خط حداکثر برابر با ۲۰۰ کاراکتر می‌باشد.
+
+\paragraph{}
+۶ نمره
+
+\paragraph{قسمت دوم}
+فرض کنید طول خط‌ها از پیش مشخص نشده است.
+
+\paragraph{}
+۱۰ نمره
+
+\end{document}
