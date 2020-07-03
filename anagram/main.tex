@@ -1,0 +1,49 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{آیا آناگرام}
+\paragraph{}
+دو رشته آناگرام می‌باشند اگر حروف آن‌ها تنها نابجایی از یکدیگر باشد.
+تابع زیر دو رشته که از حروف کوچک انگلیسی تشکیل شده‌اند را دریافت کرده و مشخص می‌کند
+آیا این دو آناگرام می‌باشند یا خیر.
+در صورتی که دو رشته آناگرام باشند خروجی برابر با یک و در غیر این صورت برابر با صفر می‌باشد.
+
+\begin{latin}
+\begin{lstlisting}[language=c]
+    int is_anagram(char* s1, char* s2) {
+        // your code goes here
+    }
+\end{lstlisting}
+\end{latin}
+
+برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
+
+\begin{latin}
+\begin{verbatim}
+    Input: eat tea
+    Output: 1
+\end{verbatim}
+
+\begin{verbatim}
+    Input: dad day
+    Output: 0
+\end{verbatim}
+
+\begin{verbatim}
+    Input: bob boo
+    Output: 0
+\end{verbatim}
+
+\begin{verbatim}
+    Input: eat ate
+    Output: 1
+\end{verbatim}
+\end{latin}
+
+\paragraph{راهنمایی}
+تعداد حروف کوچک انگلیسی برابر با ۲۶ می‌باشد.
+
+\paragraph{}
+۶ نمره
+
+\end{document}
