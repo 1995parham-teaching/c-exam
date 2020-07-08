@@ -6,5 +6,5 @@ Questions for C Final/Midterm Exams. Each problem has its sepcific folder and by
 Following package is required for loading problems into `main.tex`.
 
 ```sh
-sudo tlmgr install subfiles
+tlmgr install subfiles import
 ```
