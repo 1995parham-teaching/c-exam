@@ -8,3 +8,6 @@ Following package is required for loading problems into `main.tex`.
 ```sh
 tlmgr install subfiles import
 ```
+
+- Persian Font: Vazir
+- Latin Font: Roboto
