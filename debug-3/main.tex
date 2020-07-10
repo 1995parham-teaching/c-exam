@@ -1,0 +1,66 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{درباره لیست پیوندی}
+\paragraph{}
+\begin{enumerate}
+    \item خروجی برنامه را ذکر کنید و دلیل تغییر قسمت before و after را بنویسید.
+    \item شکل کلی لینک لیست را رسم کنید و تغییر اعمال شده را با رنگ دیگری نمایش دهید.
+    \item چه اتفاقی برای نود سوم می‌افتد و برنامه‌نویس باید به چه نکاتی دقت کند؟ (صرفا توضیح دهید)
+    
+\end{enumerate}
+
+\begin{latin}
+\begin{lstlisting}[language=c]
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    struct Node{
+        char data;
+        struct Node *next;
+    };
+
+    int main()
+    {
+        struct Node* n1 = malloc(sizeof(struct Node));
+        struct Node* n2 = malloc(sizeof(struct Node));
+        struct Node* n3 = malloc(sizeof(struct Node));
+
+        n1->data = 'a';
+        n1->next = n2;
+
+        n2->data = 'b';
+        n2->next = n3;
+
+        n3->data = 'c';
+        n3->next = NULL;
+        
+        printf("before\n");
+
+        struct Node *temp = n1;
+        while( temp != NULL){
+            printf("data: %c\n", temp->data);
+            temp = temp->next;
+        }
+
+        // the change
+        n1->next->next = NULL;
+
+
+        printf("after\n");
+        temp = n1;
+        while( temp != NULL){
+            printf("data: %c\n", temp->data);
+            temp = temp->next;
+        }
+
+        return 0;
+    }
+\end{lstlisting}
+\end{latin}
+
+
+\paragraph{}
+۶ نمره
+
+\end{document}
