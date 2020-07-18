@@ -1,0 +1,282 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{شبیه‌سازی بسکتبال خیابان}
+
+\subsection{مقدمه}
+\paragraph{}
+رها پیش‌بینی مسابقات بسکتبال خیابانی را دوست دارد، محمدحسن و پرهام این بازی را دنبال می‌کنند اما می‌خواهند رها را خوشحال کنند
+برای این کار تصمیم می‌گیرند یک شبیه‌ساز برای این پیش‌بینی‌های این بازی بنویسند تا رها بتواند با آن بازی کند.
+پرهام و محمدحسن که مشغول پروژه‌های شخصی هستند، این فرصت را به شما می‌دهند که به عنوان امتحان میان‌ترم، این شبیه‌سازی را پیاده‌سازی کنید.
+
+\subsection{در مورد شبیه‌ساز}
+\paragraph{}
+روش کار این شبیه‌ساز به این صورت است که تعدادی تیم در مسابقه وجود دارند (تیم‌ها ویژگی خاصی ندارد و با ترتیب ورودشان از هم جدا می‌شوند) 
+و بازی می‌کنند و به صورت رندوم برنده مشخص می‌شود و تعدادی کاربر روی برد این تیم‌ها پیش‌بینی می‌کنند.
+در صورتی که تیمی که کاربر روی آن پیش‌بینی کرده \textbf{قهرمان} شود، وی برنده می‌شود.
+
+\paragraph{}
+کاربر تعداد تیم‌های داخل بازی را یکی یکی در شبیه‌ساز اضافه می‌کند
+سپس کاربر، پیش‌بینی افراد متفاوتی را با \textbf{کدملی}‌های مختلف در ورودی وارد می‌کند.
+هر فرد (که با کدملی شناخته می‌شود) می‌تواند حداکثر 2 پیش‌بینی انجام دهد،
+یعنی بگوید تیم \lr{X} برنده می‌شود یا تیم \lr{Y}.
+
+\paragraph{}
+در نهایت بعد از وارد شدن اطلاعات تیم‌ها و  افراد پیش‌بینی کننده، با درخواست کاربر، شبیه‌سازی انجام می‌شود و
+ازی بین دو به دوی تیم‌ها برگزار می‌کند.
+این بازی‌ها به صورت
+\textbf{امتیازی و یک طرفه}
+بوده و احتمال برد هر تیم‌، یکسان و برابر با
+\(\frac{1}{2}\)
+است. 
+(دقت کنید که حالت مساوی نداریم و حتما یک تیم برنده می‌شود و یک تیم بازنده.)
+امتیاز تیم برنده برابر با ۱ و تیم بازنده برابر با صفر خواهد بود.
+روند بازی‌ها برای چهار تیم به شکل زیر خواهد بود:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    0 plays with 1
+    0 plays with 2
+    0 plays with 3
+
+    1 plays with 2
+    1 plays with 3
+
+    2 plays with 3
+\end{lstlisting}
+\end{latin}
+
+\subsection{پیاده‌سازی}
+
+\paragraph{}
+در ادامه روند اجرای شبیه‌ساز را مرور می‌کنیم:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 0]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در ابتدا منو فوق نمایش داده می‌شود
+که در آن از کاربر خواسته می‌شود از بین عملیات‌های زیر یک عملیات را انتخاب کند:
+
+\begin{enumerate}
+    \item عملیات افزودن تیم: یک تیم به شمار تیم‌های موجود در شبیه‌سازی می‌افزاید.
+        برای تیم لازم نیست هیچ اطلاعات از کاربر گرفته‌شود. این عملیات خروجی خاصی ندارد.
+    \item عملیات پیش‌بینی یک کاربر برای برد یک تیم:
+        کاربر برنامه کدملی یک شخص را وارد می‌کند و در ادامه یک شماره یک تیم را وارد می‌کند
+        که در واقع فردی که کد ملی‌اش وارد شده پیش‌بینی می‌کند آن تیم برنده می‌شود.
+        یک کد ملی حداکثر می‌تواند دو پیش‌بینی داشته باشد
+        یعنی حداکثر ۲ بار می‌تواند از گزینه‌ی
+        \lr{Vote for a Winner}
+        استفاده کند. 
+    \item با انتخاب این گزینه شبیه‌ساز اجرا شده و به صورت تصادفی تیم‌ها برنده یا بازنده می‌شود
+        و در نهایت برنده لیگ گزارش می‌شود.
+        همچنین شبیه‌ساز اعلام می‌کند چه کد ملی‌هایی پیش‌بینی صحیح داشتند و در نهایت برنامه خاتمه پیدا می‌کند.
+\end{enumerate}
+
+\paragraph{}
+\textbf{برنامه شما باید بررسی کند کد ملی یک عدد حداکثر ۱۰ رقمی بوده و شماره تیم نیز در بازه تعداد تیم‌ها باشد.}
+بعد از انجام گزینه ۱ یا ۲ دوباره منو ابتدایی نمایش داده می‌شود.
+
+\subsubsection{نمونه ورودی و خروجی}
+\paragraph{}
+فرض کنید در اولین گام، کاربر اصلی ۴ تیم را وارد کنید یعنی از گزینه ۱ چهار بار  استفاده کند:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 1]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 2]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 3]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در ادامه فرض کنید به اشتباه عدد ۵ (که در گزینه‌ها موجود نیست) را وارد کند:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    Invalid Choice
+    Welcome to our simulator
+    [n_participants: 0] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در ادامه می‌خواهیم پیش‌بینی تیم برنده را انجام دهیم، برای اینکار گزینه‌ی ۲ را وارد می‌کنیم:
+
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    ID: 0017784646
+    Bet: 1
+    insertion success
+    Welcome to our simulator
+    [n_participants: 1] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در ادامه همین شرکت‌کننده می‌خواهد روی تیم شماره صفر نیز پیش‌بینی انجام دهد و به این ترتیب داریم:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    ID: 0017784646
+    Bet: 0
+    insertion success
+    Welcome to our simulator
+    [n_participants: 2] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+حال ایشان به اشتباه می‌خواهد سومین پیش‌بینی خود را نیز ثبت کند که با خطا مواجه می‌شود:
+
+\begin{latin}
+\begin{lstlisting}[]
+    ID: 0017784646
+    Bet: 2
+    insertion failed
+    Welcome to our simulator
+    [n_participants: 2] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winne
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در ادامه یک شرکت‌کننده دیگر می‌خواهد روی تیم‌های شماره‌ی ۲ و ۳ پیش‌بینی انجام دهد:
+
+
+\begin{latin}
+\begin{lstlisting}[]
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+    2
+    ID: 0022552898
+    Bet: 2
+    insertion success
+    Welcome to our simulator
+    [n_participants: 3] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+    2
+    ID: 0022552898
+    Bet: 3
+    insertion success
+    Welcome to our simulator
+    [n_participants: 4] [n_teams: 4]
+
+    1) Add Team
+    2) Vote for a Winner
+    3) Execute simulation and report a winner
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+در نهایت با استفاده از گزینه ۳ شبیه‌سازی را اجرا می‌کنیم.
+با انتخاب این گزینه شبیه‌ساز اجرا شده و به صورت تصادفی تیم‌ها برنده یا بازنده می‌شود
+و در نهایت برنده لیگ گزارش می‌شود. همچنین شبیه‌ساز اعلام می‌کند چه کد ملی‌هایی پیش‌بینی صحیح داشتند
+و در نهایت برنامه خاتمه پیدا می‌کند.
+
+\begin{latin}
+\begin{lstlisting}[]
+    team 2 is a winner
+    teams[0]: 0
+    teams[1]: 2
+    teams[2]: 3
+    teams[3]: 1
+    0022552898 win
+\end{lstlisting}
+\end{latin}
+
+\paragraph{}
+و برنامه به پایان می‌رسد. در پایان تیم برنده اعلام شده و امتیاز همه تیم‌ها لیست می‌شود. در صورتی که چند تیم امتیاز برابر داشته باشند به دلخواه یکی از آن‌ها برنده اعلام می‌شود.
+
+\subsection{نکات پیاده‌سازی}
+
+\begin{itemize}
+    \item تا جایی که می‌توانید برنامه‌ی خود را به توابع معنی‌دار بشکنید. بهتر است هر تابع یک کار معین را انجام دهد.
+    \item تعداد شرکت‌کننده‌ها و تیم‌ها هر کدام حداکثر ۱۰۰ می‌باشد و تضمین می‌شود بیشتر از این تعداد نخواهند بود.
+    \item دقت کنید که کد ملیَ برنده‌ها باید به شکل صحیح (با صفرهای ابتدایی) چاپ شود. برای این موضوع در نظر داشته باشید که کد ملی با صفرهای ابتدایی دقیقا ۱۰ رقم است.
+    \item برای نگهداری کد ملی از متغیر صحیح استفاده کنید و در نظر داشته باشید که کد ملی از نظر عددی بزرگ می‌باشد.
+    \item برای پیاده‌سازی این پروژه تنها نیاز به آنچه \textbf{تا انتهای توابع} بحث شده است دارید اما استفاده از تمام ویژگی‌های زبان سی آزاد می‌باشد.
+    \item در پیاده‌سازی این پروژه فقط از \textbf{زبان سی} استفاده کنید. در صورتی که برنامه شما برای اجرا نیاز به تنظیمات خاصی دارد یک راهنما برای اجرای برنامه بنویسید در فایل زیپتان همراه برنامه ارسال کنید.
+    \item از آنجایی که این پروژه در قالب \textbf{امتحان میانترم} می‌باشد از تغییر دادن صورت مساله یا انجام موارد خارج از موارد مطرح شده خودداری کنید.
+\end{itemize}
+
+\subsection{موارد امتیازی}
+
+\begin{enumerate}
+    \item شرکت‌کننده بتواند از پیش‌بینی انصراف دهد. انصراف به این ترتیب خواهد بود که تمامی پیش‌بینی‌های ایشان از لیست پیش‌بینی‌ها حذف خواهد شد. برای اینکار گزینه جدایی مثلا 4 را در نظر بگیرید.
+    \item چاپ جدول بازی‌ها: در انتهای بازی، همراه لیست برنده‌ها، جدول بازی‌ها و به همراه نتیجه‌شان چاپ شود.
+    \item بازی‌ها به صورت حذفی باشند. به این ترتیب که تیم بازنده از دور بازی‌ها خارج شده و دیگر در بازی‌ها شرکت نمی‌کند.
+\end{enumerate}
+
+\end{document}
