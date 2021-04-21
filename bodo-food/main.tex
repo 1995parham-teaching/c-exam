@@ -27,7 +27,7 @@
 \پایان{فقرات}
 
 \پاراگراف{}
-شما می‌بایست این اطلاعات را از کاربر گرفته و بعد از اعمال صحت‌سنجی دست به نگهداری آن‌ها بزنید. برای نگهداری این اطلاعات همانطور که گفته شد نیاز به استفاده همزمان از چند آرایه دارید. یعنی:
+شما می‌بایست این اطلاعات را از کاربر گرفته و بعد از اعمال صحت‌سنجی، آن‌ را ذخیره کنید. برای نگهداری این اطلاعات همانطور که گفته شد نیاز به استفاده همزمان از چند آرایه دارید. یعنی:
 \begin{latin}
 \begin{lstlisting}[language=c]
 #define MAX 100
@@ -67,7 +67,7 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     1) Couriers
     2) Orders
@@ -93,7 +93,7 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     1) Add
     2) Remove
@@ -124,11 +124,12 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     1) Start
     2) Stop
-    3) Back
+    3) List
+    4) Back
 \end{lstlisting}
 \end{latin}
 
@@ -138,6 +139,7 @@ int status[MAX];
 \شروع{شمارش}
 \فقره آغاز: یک سفارش آغاز می‌شود، همانطور که بیان شد از بین پیک‌های فعال یک پیک تصادفی و یک شناسه تصادفی به سفارش تخصیص می‌یابند. در صورتی که پیک فعال وجود نداشته باشد برنامه می‌بایست با یک خطای مناسب به منو اصلی بازگردد.
 \فقره پایان: یک سفارش با ورود شناسه آن که در زمان آغاز سفارش ساخته و به کاربر نیز نمایش داده شد، پایان می‌یابد. پس از خاتمه سفارش از لیست حذف شده و پیک آن به وضعیت فعال باز می‌گردد.
+\فقره لیست:‌ سفارشات جاری را لیست می‌کند. این لیست شامل کد ملی راننده و شناسه سفارش می‌باشد.
 \فقره بازگشت: بازگشت به منو اصلی
 \پایان{شمارش}
 
@@ -151,7 +153,7 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     ID: 0017784646
     Phone: 09121234567
@@ -168,7 +170,7 @@ int status[MAX];
     available couriers = 1
     total couriers = 1
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     1) Add
     2) Remove
@@ -179,7 +181,7 @@ int status[MAX];
 \end{latin}
 
 \پاراگراف{}
-در صورتی که اطلاعات وارد شده صحیح نباشند، یک پیام مناسب به کاربر نمایش داده شده و کاربر بعد از وارد کردن \متن‌لاتین{enter} وارد منو پیک‌ها می‌گردد.
+در صورتی که اطلاعات وارد شده صحیح نباشند، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو پیک‌ها می‌گردد.
 
 \begin{latin}
 \begin{lstlisting}[]
@@ -188,7 +190,7 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     ID: 0017784646
     Phone: 091212345671
@@ -207,7 +209,7 @@ int status[MAX];
     available couriers = 1
     total couriers = 1
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     ID: 0017784646
 
@@ -223,7 +225,7 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     1) Add
     2) Remove
@@ -233,7 +235,7 @@ int status[MAX];
 \end{lstlisting}
 \end{latin}
 
-در صورتی که پیکی با شناسه‌ی داده شده وجود نداشته باشد، یک پیام مناسب به کاربر نمایش داده شده و کاربر بعد از وارد کردن \متن‌لاتین{enter} وارد منو پیک‌ها می‌گردد.
+در صورتی که پیکی با شناسه‌ی داده شده وجود نداشته باشد، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو پیک‌ها می‌گردد.
 
 \begin{latin}
 \begin{lstlisting}[]
@@ -242,11 +244,83 @@ int status[MAX];
     available couriers = 0
     total couriers = 0
     on-going orders = 0
-    finised orders = 0
+    finished orders = 0
 
     ID: 0017784646
 
     There is no courier with given ID
+\end{lstlisting}
+\end{latin}
+
+در صورتی که کار بخواهد یک سفارش جدید ایجاد کند، یک راننده تصادفی انتخاب شده، به صورت غیرفعال درآمده و در نهایت با یک شناسه تصادفی سفارش ساخته می‌شود، در ادامه کاربر به منو سفارشات باز می‌گردد.
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to bodo food, manager
+
+    available couriers = 0
+    total couriers = 0
+    on-going orders = 1
+    finished orders = 0
+
+    Courier ID: 0017784646
+    ID: 1234
+
+\end{lstlisting}
+\end{latin}
+
+در صورتی که در زمان ساخت سفارش پیکی وجود نداشته باشد، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو سفارش‌ها می‌شود.
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to bodo food, manager
+
+    available couriers = 0
+    total couriers = 0
+    on-going orders = 1
+    finished orders = 0
+
+    There is no available courier for new order
+\end{lstlisting}
+\end{latin}
+
+در این قسمت، کاربر لیست سفارشات را گرفته است. طول این لیست با مقدار \متن‌لاتین{on-going orders} برابر است.
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to bodo food, manager
+
+    available couriers = 0
+    total couriers = 0
+    on-going orders = 2
+    finished orders = 0
+
+    Order 1)
+    Courier ID: 0017784646
+    ID: 1234
+
+    Order 2)
+    Courier ID: 0017784647
+    ID: 10
+
+\end{lstlisting}
+\end{latin}
+
+در این قسمت، کاربر یک سفارش را خاتمه داده است. دقت داشته باشید که بعد از خاتمه یک سفارش مقدار \متن‌لاتین{on-going orders} و \متن‌لاتین{finished orders} به روزرسانی خواهند شد.
+
+\begin{latin}
+\begin{lstlisting}[]
+    Welcome to bodo food, manager
+
+    available couriers = 0
+    total couriers = 0
+    on-going orders = 1
+    finished orders = 1
+
+    1) Start
+    2) Stop
+    3) List
+    4) Back
 \end{lstlisting}
 \end{latin}
 
@@ -266,6 +340,8 @@ int status[MAX];
     \فقره برای پیاده‌سازی آرایه‌های سفارشات و پیک‌ها زمانی که یک پیک یا سفارش حذف می‌گردد یک خانه خالی ایجاد می‌شود، اگر بخواهیم این خانه خالی را پر کنیم و به جای آن یک خانه در انتها آرایه را خالی کنیم، آیا روشی با یک جابجایی وجود دارد؟ در نظر داشته باشید روش پیشنهادی به اندازه فاصله میان خانه خالی و ابتدای آرایه نیاز به جابجایی دارد.
     \فقره برای سفارشات سود هم در نظر بگیرید و با اضافه کردن یک زیر منو با نام \متن‌لاتین{Results} و گزینه \متن‌لاتین{Profit} سود حاصل از سفارشات به پایان رسیده را اعلام کنید.
     \فقره برای هر راننده تعداد سفارشات انجام شده را ذخیره کرده و آن را در یک زیر منو با نام \متن‌لاتین{Results} و گزینه \متن‌لاتین{OrdersPerCouriers} بیاورید. در نظر داشته باشید این گزینه نیاز به دریافت کد ملی پیک خواهد داشت.
+    \فقره نمایش شماره همراه راننده در لیست سفارشات
+    \فقره در هنگام خاتمه سفارش، زمان سپری شده از آغاز تا پایان سفارش نمایش داده شود. (در نظر داشته باشید برای انجام این قسمت به چیزی بیشتر از آنچه در کلاس آموخته‌ایم نیاز خواهید داشت)
 \پایان{فقرات}
 
 
