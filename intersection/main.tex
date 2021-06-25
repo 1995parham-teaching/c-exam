@@ -1,0 +1,38 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\قسمت{اشتراک لیست‌های پیوندی}
+\پاراگراف{}
+تابع زیر را به شکلی تکمیل کنید که با دریافت دو لیست پیوندی متشکل از اعداد صحیح اشتراک آن‌ها را محاسبه کرده و در قالب یک لیست پیوندی جدید برگرداند. پیشنهادی می‌شود برای این سوال توابعی که برای کار با لیست پیوندی لازم دارید پیاده‌سازی کرده و در نهایت تابع زیر را با استفاده از آن‌ها تکمیل کنید.
+
+\begin{latin}
+\begin{minted}[bgcolor=LightGray]{c}
+struct node {
+    int value;
+    struct node *next;
+};
+
+struct node *lists_intersection(struct node *l1, struct node *l2) {
+    // returns intersection between l1 and l2
+}
+\end{minted}
+\end{latin}
+
+برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
+
+\begin{latin}
+\begin{verbatim}
+Input: 1->1-2 1->2->3
+Output: 1->2
+\end{verbatim}
+
+\begin{verbatim}
+Input: 1->1 2->3->3
+Output: NULL
+\end{verbatim}
+\end{latin}
+
+\پاراگراف{}
+۵ نمره
+
+\end{document}
