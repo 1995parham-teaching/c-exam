@@ -1,4 +1,4 @@
-$pdflatex = "xelatex %O %S";
+$pdflatex = "xelatex -shell-escape %O %S";
 $biber='biber --validate-datamodel %O %S';
 $pdf_mode = 1;
 $dvi_mode = 0;
