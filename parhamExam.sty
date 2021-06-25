@@ -1,0 +1,42 @@
+\ProvidesPackage{parhamExam}[]
+
+\newcommand\Extra{\textcolor{Orange}{امتیازی.}}
+\newenvironment{extra}{
+  \begin{quote}
+  \color{Orange}
+  \textbf{امتیازی.}
+}{
+  \end{quote}
+}
+\eqenvironment{امتیازی}{extra}
+
+\newcommand*{\university}[1]{\gdef\@university{#1}}
+\newcommand*{\duration}[1]{\gdef\@duration{#1}}
+\newcommand*{\exam}[1]{\gdef\@exam{#1}}
+\newcommand*{\semester}[1]{\gdef\@semester{#1}}
+
+\renewcommand*{\maketitle}{%
+  \begin{center}
+    \vspace*{1cm}
+
+		\Huge\textbf{\@title}
+
+    \vspace{0.5cm}
+		\Large
+    \@exam\\
+		\@semester\\
+		\@date
+
+    \vspace{1.5cm}
+
+    \textbf{\@author}
+
+		\@ifundefined{@duration}{}{%
+    زمان آزمون: \@duration دقیقه
+		}
+
+    \vspace{0.8cm}
+
+		\@university
+  \end{center}
+}
