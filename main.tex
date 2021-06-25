@@ -3,34 +3,67 @@
 \usepackage{hyperref}
 \usepackage{import}
 \usepackage{listings}
+\usepackage{minted}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{geometry}
-\geometry{
+ \geometry{
  a4paper,
  left=2.2cm,
  right=2.2cm,
  top=2.5cm,
  bottom=2.5cm
+ }
+
+% \usepackage[disable]{todonotes} % answers not showed
+\usepackage[draft]{todonotes}   % answers showed
+
+% based on
+\newcommand\answer[2][]{\todo[inline, caption={2do}, #1]{
+    \begin{persian}
+    \begin{minipage}{\textwidth-4pt}
+      پاسخ.
+      #2
+    \end{minipage}
+    \end{persian}
+  }
 }
 
 \usepackage[localise]{xepersian}
 \settextfont{Vazir}
 \setlatintextfont{Roboto}
 
-\usepackage{subfiles}
+% for listing environments
+\colorlet{LightGray}{Gray!30!}
 
-\title{آزمون میان‌ترم\\مبانی کامپیوتر و برنامه‌سازی}
+\usepackage{subfiles}
+\usepackage{parhamExam}
+
+\title{مبانی کامپیوتر و برنامه‌نویسی}
 \author{پرهام الوانی}
-\date{نیم سال دوم ۱۴۰۰-۱۳۹۹}
+\date{۵ تیر ۱۴۰۰}
+\university{دانشگاه صنعتی امیرکبیر}
+\exam{آزمون پایانی}
+\semester{نیم سال دوم ۱۳۹۹-۱۴۰۰}
+\duration{۱۲۰}
 
 \begin{document}
+  \maketitle
+  \tableofcontents
+  \pagebreak
 
-    \maketitle
-    \tableofcontents
-
-    \subfile{bodo-food/main}
-    \vspace*{\fill}
-    \begin{center}
+  \subfile{introduction/main}
+  \pagebreak
+  \subfile{unique/main}
+  \subfile{replace-spaces/main}
+  \subfile{intersection/main}
+  \subfile{sorted-students-with-file/main}
+  \subfile{debug-2/main}
+  \subfile{theory/main}
+  \vspace*{\fill}
+  \begin{center}
 این سند برپایه بسته \متن‌لاتین{\زی‌پرشین} گونه \متن‌لاتین{\گونه‌زی‌پرشین} توسعه پیدا کرده است.
-    \end{center}
+  \end{center}
 
 \end{document}
