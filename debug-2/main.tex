@@ -1,27 +1,27 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{خطایابی ۲}
-\paragraph{}
-سامان قطعه کد زیر را برای خواند یک بارکد ده رقمی پیاده‌سازی کرده است.
+\قسمت{خطایابی ۲}
+\پاراگراف{}
+سامان قطعه کد زیر را برای خواند یک بارکد ده رقمی پیاده‌سازی کرده است. بعد از خواندن بارکد سامان از آن در قالب یک رشته استاندارد زبان سی و با بهره‌گیری از کتابخانه \همانطور|string.h| استفاده می‌کند.
 او مدعی است که این کد گاها برای بعضی از بارکدها به دلایل نامعلومی در هنگام اجرا بسته می‌شود.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    int main() {
-        char barcode[10];
-        gets(barcode);
+\begin{minted}[bgcolor=LightGray]{c}
+int main() {
+    char barcode[10];
+    gets(barcode);
 
-        // do some work with barcode
+    // do some work with barcode using <string.h>
 
-        printf("%s", barcode);
-    }
-\end{lstlisting}
+    printf("%s", barcode);
+}
+\end{minted}
 \end{latin}
 
 آیا شما با استفاده از همین قطعه کد سامان می‌توانید به وی کمک کنید؟
 
-\paragraph{}
-۳ نمره
+\پاراگراف{}
+۲ نمره
 
 \end{document}
