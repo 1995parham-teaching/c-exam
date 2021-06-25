@@ -1,38 +1,38 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{پاک کردن تکراری‌ها}
-\paragraph{}
-تابع زیر را به شکلی تکمیل کنید که اعضای تکراری از لیست پیوندی داده شده را حذف نماید.
+\قسمت{پاک کردن تکراری‌ها}
+\پاراگراف{}
+تابع زیر را به شکلی تکمیل کنید که اعضای تکراری از لیست پیوندی داده شده را، حذف نماید.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    struct node {
-        int val;
-        struct node *next;
-    };
+\begin{minted}[bgcolor=LightGray]{c}
+struct node {
+    int value;
+    struct node *next;
+};
 
-    void delete_duplicates(struct node *head) {
-        // your code goes here
-    }
-\end{lstlisting}
+void delete_duplicates(struct node *head) {
+    // your code goes here
+}
+\end{minted}
 \end{latin}
 
 برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
 
 \begin{latin}
 \begin{verbatim}
-    Input: 1->1->2
-    Output: 1->2
+Input: 1->1->2
+Output: 1->2
 \end{verbatim}
 
 \begin{verbatim}
-    Input: 1->1->2->3->3
-    Output: 1->2->3
+Input: 1->1->2->3->3
+Output: 1->2->3
 \end{verbatim}
 \end{latin}
 
-\paragraph{}
+\پاراگراف{}
 ۴ نمره
 
 \end{document}
