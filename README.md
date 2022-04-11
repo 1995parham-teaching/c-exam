@@ -9,9 +9,8 @@ Questions for C Final/Midterm Exams. Each problem has its sepcific folder and by
 Following package is required for loading problems into `main.tex`.
 
 ```sh
-tlmgr install subfiles import listing
+tlmgr install subfiles import listing todonotes
 ```
 
 - Persian Font: Vazir
 - Latin Font: Roboto
-
