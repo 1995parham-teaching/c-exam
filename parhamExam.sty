@@ -10,6 +10,16 @@
 }
 \eqenvironment{امتیازی}{extra}
 
+\newcommand\answer[2][]{\todo[inline, caption={2do}, #1]{
+    \begin{persian}
+    \begin{minipage}{\textwidth-4pt}
+      پاسخ.
+      #2
+    \end{minipage}
+    \end{persian}
+  }
+}
+
 \setlength{\parindent}{0pt}
 \renewcommand{\baselinestretch}{1.5}
 
@@ -22,24 +32,24 @@
   \begin{center}
     \vspace*{1cm}
 
-		\Huge\textbf{\@title}
+    \Huge\textbf{\@title}
 
     \vspace{0.5cm}
-		\Large
+    \Large
     \@exam\\
-		\@semester\\
-		\@date
+    \@semester\\
+    \@date
 
     \vspace{1.5cm}
 
     \textbf{\@author}
 
-		\@ifundefined{@duration}{}{%
-    زمان آزمون: \@duration دقیقه
-		}
+    \@ifundefined{@duration}{}{%
+    زمان آزمون: \@duration\space دقیقه
+    }
 
     \vspace{0.8cm}
 
-		\@university
+    \@university
   \end{center}
 }

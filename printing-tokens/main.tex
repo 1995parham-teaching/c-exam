@@ -1,0 +1,41 @@
+
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\قسمت{چاپ کردن توکن‌ها}
+
+رشته‌ی \متن‌لاتین{s} به شما داده شده است، تابعی بنویسید که کلمات این رشته، که با کاراکتر فاصله از یکدیگر جدا شده‌اند، را چاپ کند.
+هر کلمه باید در یک خط چاپ شود.
+اندازه رشته و کلمات آن محدودیتی \متن‌سیاه{ندارند}.
+
+\begin{latin}
+\begin{minted}[]{c}
+void printing_tokens(char *s) {
+  // write your code here
+}
+\end{minted}
+\end{latin}
+
+به طور مثال فرض کنید:
+
+\begin{latin}
+\begin{minted}[]{c}
+char *s = "This is C"
+\end{minted}
+\end{latin}
+
+در این صورت خروجی تابع شما باید به شکل زیر باشد:
+
+\begin{latin}
+\begin{minted}[]{output}
+This
+is
+C
+\end{minted}
+\end{latin}
+
+
+۴ نمره
+
+\end{document}

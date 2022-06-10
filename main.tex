@@ -19,17 +19,6 @@
 % \usepackage[disable]{todonotes} % answers not showed
 \usepackage[draft]{todonotes}   % answers showed
 
-% based on
-\newcommand\answer[2][]{\todo[inline, caption={2do}, #1]{
-    \begin{persian}
-    \begin{minipage}{\textwidth-4pt}
-      پاسخ.
-      #2
-    \end{minipage}
-    \end{persian}
-  }
-}
-
 \usepackage[localise]{xepersian}
 \settextfont{Vazirmatn}
 \setlatintextfont{Roboto}
@@ -46,14 +35,15 @@
 \university{دانشگاه صنعتی امیرکبیر}
 \exam{میان‌ترم}
 \semester{نیم سال دوم ۱۴۰۰-۱۴۰۱}
-\duration{---}
+\duration{۱۲۰}
 
 \begin{document}
   \maketitle
   \tableofcontents
   \pagebreak
 
-  \subfile{basketball/main}
+  \subfile{mini-max-sum/main}
+  \subfile{printing-tokens/main}
 
   \vspace*{\fill}
   \begin{center}
