@@ -1,14 +1,10 @@
-\documentclass[../main.tex]{subfiles}
-
-\begin{document}
 \قسمت{جایگزین کردن فاصله‌ها}
-\پاراگراف{}
+
 تابع زیر را به شکلی تکمیل کنید که با دریافت یک رشته کاراکترهای فاصله \همانطور|' '| در آن را با \همانطور|%20|
 جایگزین کند. این تابع در رشته اصلی تغییری ایجاد نکرده و یک رشته جدید برمی‌گرداند. در نظر داشته باشید که رشته جدید می‌بایست خاتمه یافته به \متن‌لاتین{NULL} باشد.
 
 \begin{latin}
-\begin{minted}[bgcolor=LightGray]{c}
-
+\begin{minted}{c}
 char *replace_spaces(const chart *str) {
     // replace ' ' with %20
 }
@@ -20,23 +16,18 @@ char *replace_spaces(const chart *str) {
 در نظر داشته باشید در این مثال‌ها برای نمایش بهتر فاصله از کاراکتر \همانطور*| | استفاده شده است.
 
 \begin{latin}
-\begin{verbatim*}
+\begin{minted}{c}
 Input:Parham Alvani
 Output:Parham%20Alvani
-\end{verbatim*}
 
-\begin{verbatim*}
 Input:The World is Yours
 Output:The%20World%20is%20Yours
-\end{verbatim*}
 
-\begin{verbatim*}
 Input:Hello   World
 Output:Hello%20%20%20World
-\end{verbatim*}
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 ۴ نمره
 
 \end{document}
