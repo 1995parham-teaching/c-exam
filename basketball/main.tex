@@ -1,7 +1,3 @@
-\documentclass[../main.tex]{subfiles}
-
-\begin{document}
-
 \قسمت{شبیه‌سازی مسابقات بسکتبال}
 
 \زیرقسمت{مقدمه}
@@ -35,16 +31,16 @@
 روند بازی‌ها برای چهار تیم با شماره‌های ۰ تا ۳ به شکل زیر خواهد بود:
 
 \begin{latin}
-\begin{lstlisting}[]
-    0 plays with 1
-    0 plays with 2
-    0 plays with 3
+\begin{minted}{output}
+0 plays with 1
+0 plays with 2
+0 plays with 3
 
-    1 plays with 2
-    1 plays with 3
+1 plays with 2
+1 plays with 3
 
-    2 plays with 3
-\end{lstlisting}
+2 plays with 3
+\end{minted}
 \end{latin}
 
 \زیرقسمت{پیاده‌سازی}
@@ -52,14 +48,14 @@
 در ادامه روند اجرای شبیه‌ساز را مرور می‌کنیم:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 0]
+\begin{minted}{output}
+Welcome to our simulator
+[n_participants: 0] [n_teams: 0]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 در ابتدا منو فوق نمایش داده می‌شود
@@ -90,142 +86,142 @@
 فرض کنید در اولین گام، کاربر اصلی ۴ تیم را وارد کند به این معنی که از گزینه ۱ چهار بار استفاده کند:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 1]
+\begin{minted}{output}
+Welcome to our simulator
+[n_participants: 0] [n_teams: 1]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 2]
+\begin{minted}{output}
+Welcome to our simulator
+[n_participants: 0] [n_teams: 2]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 3]
+\begin{minted}{output}
+Welcome to our simulator
+[n_participants: 0] [n_teams: 3]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 4]
+\begin{minted}{output}
+Welcome to our simulator
+[n_participants: 0] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 در ادامه فرض کنید کاربر به اشتباه عدد ۵ (که در گزینه‌ها موجود نیست) را وارد کند.
 در این شرایط خطایی نمایش داده شده و دوباره منو ابتدایی ظاهر می‌شود:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Invalid Choice
-    Welcome to our simulator
-    [n_participants: 0] [n_teams: 4]
+\begin{minted}{output}
+Invalid Choice
+Welcome to our simulator
+[n_participants: 0] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 در ادامه کاربر می‌خواهد پیش‌بینی تیم قهرمان را انجام دهد، برای اینکار گزینه‌ی ۲ را وارد می‌کند.
 برای انجام پیش‌بینی کد ملی فرد و شماره تیم مورد نظر از او گرفته شده و دوباره منو نمایش داده می‌شود.
 
 \begin{latin}
-\begin{lstlisting}[]
-    ID: 0017784646
-    Bet: 1
-    insertion success
-    Welcome to our simulator
-    [n_participants: 1] [n_teams: 4]
+\begin{minted}{output}
+ID: 0017784646
+Bet: 1
+insertion success
+Welcome to our simulator
+[n_participants: 1] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 در ادامه همین شرکت‌کننده می‌خواهد روی تیم شماره صفر نیز پیش‌بینی انجام دهد و به این ترتیب داریم:
 
 \begin{latin}
-\begin{lstlisting}[]
-    ID: 0017784646
-    Bet: 0
-    insertion success
-    Welcome to our simulator
-    [n_participants: 2] [n_teams: 4]
+\begin{minted}{output}
+ID: 0017784646
+Bet: 0
+insertion success
+Welcome to our simulator
+[n_participants: 2] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 حال ایشان به اشتباه می‌خواهد سومین پیش‌بینی خود را نیز ثبت کند که با خطا مواجه می‌شود:
 
 \begin{latin}
-\begin{lstlisting}[]
-    ID: 0017784646
-    Bet: 2
-    insertion failed because you have two bets already
-    Welcome to our simulator
-    [n_participants: 2] [n_teams: 4]
+\begin{minted}{output}
+ID: 0017784646
+Bet: 2
+insertion failed because you have two bets already
+Welcome to our simulator
+[n_participants: 2] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winne
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winne
+\end{minted}
 \end{latin}
 
 در ادامه یک شرکت‌کننده دیگر می‌خواهد روی تیم‌های شماره‌ی ۲ و ۳ پیش‌بینی انجام دهد:
 
 \begin{latin}
-\begin{lstlisting}[]
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-    2
-    ID: 0022552898
-    Bet: 2
-    insertion success
-    Welcome to our simulator
-    [n_participants: 3] [n_teams: 4]
+\begin{minted}{output}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+2
+ID: 0022552898
+Bet: 2
+insertion success
+Welcome to our simulator
+[n_participants: 3] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-    2
-    ID: 0022552898
-    Bet: 3
-    insertion success
-    Welcome to our simulator
-    [n_participants: 4] [n_teams: 4]
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+2
+ID: 0022552898
+Bet: 3
+insertion success
+Welcome to our simulator
+[n_participants: 4] [n_teams: 4]
 
-    1) Add Team
-    2) Vote for a Winner
-    3) Execute simulation and report a winner
-\end{lstlisting}
+1) Add Team
+2) Vote for a Winner
+3) Execute simulation and report a winner
+\end{minted}
 \end{latin}
 
 در نهایت با استفاده از گزینه ۳ شبیه‌سازی را اجرا می‌شود.
@@ -233,14 +229,14 @@
 و در نهایت برنده لیگ گزارش می‌شود. همچنین شبیه‌ساز اعلام می‌کند چه کد ملی‌هایی پیش‌بینی صحیح داشتند.
 
 \begin{latin}
-\begin{lstlisting}[]
-    team 2 is a winner
-    teams[0]: 0
-    teams[1]: 2
-    teams[2]: 3
-    teams[3]: 1
-    0022552898 win
-\end{lstlisting}
+\begin{minted}{output}
+team 2 is a winner
+teams[0]: 0
+teams[1]: 2
+teams[2]: 3
+teams[3]: 1
+0022552898 win
+\end{minted}
 \end{latin}
 
 و برنامه به پایان می‌رسد. در پایان تیم برنده اعلام شده و امتیاز همه تیم‌ها لیست می‌شود. در صورتی که چند تیم امتیاز برابر داشته باشند
@@ -266,5 +262,3 @@
     \فقره چاپ جدول بازی‌ها: در انتهای بازی، همراه لیست برنده‌ها، جدول بازی‌ها و به همراه نتیجه‌شان چاپ شود.
     \فقره بازی‌ها به صورت حذفی باشند. به این ترتیب که تیم بازنده از دور بازی‌ها خارج شده و دیگر در بازی‌ها شرکت نمی‌کند.
 \پایان{شمارش}
-
-\end{document}
