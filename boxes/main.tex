@@ -1,0 +1,62 @@
+
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\قسمت{جعبه‌ها}
+
+شرکتی قصد دارد بسته‌های دریافتی خود را پردازش کرده و حجم بسته‌هایی که ارتفاع کمتر از ۴۰ سانتی‌متر دارند را گزارش کند.
+برای این کار قصد دارد از یک برنامه \متن‌لاتین{C} استفاده کند. این برنامه طول، عرض و ارتفاع بسته‌ها را از ورودی خوانده و حجم بسته‌هایی
+که ارتفاع کمتر از ۴۰ سانتی‌متر دارند را چاپ می‌کند.
+
+\begin{latin}
+\begin{minted}[]{c}
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_HEIGHT 40
+
+struct box
+{
+  /**
+  * Define three fields of type int: length, width and height
+  */
+};
+
+typedef struct box box;
+
+int get_volume(box b) {
+  /**
+  * Return the volume of the box
+  */
+}
+
+int is_lower_than_max_height(box b) {
+  /**
+  * Return 1 if the box's height is lower than MAX_HEIGHT and 0 otherwise
+  */
+}
+
+int main()
+{
+  int n;
+  scanf("%d", &n);
+  box *boxes = malloc(n * sizeof(box));
+  for (int i = 0; i < n; i++) {
+    scanf("%d%d%d", &boxes[i].length, &boxes[i].width, &boxes[i].height);
+  }
+  for (int i = 0; i < n; i++) {
+    if (is_lower_than_max_height(boxes[i])) {
+      printf("%d\n", get_volume(boxes[i]));
+    }
+  }
+  return 0;
+}
+\end{minted}
+\end{latin}
+
+قسمتی از برنامه مورد نیاز این شرکت نوشته شده است. آن را کامل کنید.
+
+۲ نمره
+
+\end{document}

@@ -1,55 +1,48 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{نقطه گذاری}
-\paragraph{}
+
+\قسمت{نقطه گذاری}
 تابع زیر نام دو فایل را دریافت می‌کند.
 این تابع هر خط از فایل اول را خوانده و یک نقطه
-\lr{\textit{'.'}}
+\متن‌لاتین{\متن‌ایتالیک{'.'}}
 به انتهای آن اضافه کرده و آن را در فایل دوم یادداشت می‌کند.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    void add_period(char* f1, char* f2) {
-        // your code goes here
-    }
-\end{lstlisting}
+\begin{minted}{c}
+void add_period(char* f1, char* f2) {
+    // your code goes here
+}
+\end{minted}
 \end{latin}
 
 برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
 
 \begin{latin}
-\begin{verbatim}
-    Input:
-        Hello world
-        123
-    Output:
-        Hello world.
-        123.
-\end{verbatim}
+\begin{minted}{output}
+Input:
+    Hello world
+    123
+Output:
+    Hello world.
+    123.
 
-\begin{verbatim}
-    Input:
-        123123
-    Output:
-        123123.
-\end{verbatim}
+Input:
+    123123
+Output:
+    123123.
+\end{minted}
 \end{latin}
 
-\paragraph{قسمت اول}
-فرض کنید طول هر خط حداکثر برابر با ۲۰۰ کاراکتر می‌باشد.
+\شروع{شمارش}[ا -]
 
-\paragraph{}
-۴ نمره
+\فقره فرض کنید طول هر خط حداکثر برابر با ۲۰۰ کاراکتر می‌باشد. ۴ نمره
 
-\paragraph{قسمت دوم}
-فرض کنید طول خط‌ها از پیش مشخص نشده است.
+\فقره فرض کنید طول خط‌ها از پیش مشخص نشده است. ۶ نمره
 
-\paragraph{}
-۶ نمره
+\پایان{شمارش}
 
-\paragraph{نکات}
 در نظر داشته باشید که حتما در هنگام باز کردن فایل خطا را نیز مورد بررسی قرار دهید.
-مشخص است که در تنها نیاز به حل یکی از قسمت‌ها می‌باشد و حل هر دو قسمت نمره‌ی اضافه‌ای ندارد.
+مشخص است که تنها نیاز به حل یکی از قسمت‌ها می‌باشد و حل هر دو قسمت نمره‌ی اضافه‌ای ندارد.
 
 \end{document}
