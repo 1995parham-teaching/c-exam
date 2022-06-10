@@ -1,15 +1,12 @@
-\documentclass[../main.tex]{subfiles}
-
-\begin{document}
 \قسمت{بُدوفود}
 
 \زیرقسمت{مقدمه}
-\پاراگراف{}
+
 قصد داریم یک استارآپ برای تحویل غذا از رستوران‌ها به مشتریان ایجاد کنیم. در این سامانه ما تنها پیک‌ها را مدیریت می‌کنیم و مدیر سامانه می‌تواند پیک‌ها و سفارشات را از طریق پنلی که در اختیارش قرار می‌دهیم، مدیریت کند.
 بنابراین اینجا کاری با رستوران‌ها و مشتریان نخواهیم داشت.
 
 \زیرقسمت{پیک‌ها}
-\پاراگراف{}
+
 مدیر سامانه در جهت مدیریت پیک‌ها می‌تواند اعمال زیر را انجام دهد:
 \شروع{شمارش}
 \فقره اطلاعات یک پیک جدید را ثبت نماید.
@@ -18,7 +15,6 @@
 \فقره یک پیک را به صورت تصادفی برای یک سفارش برگزیند.
 \پایان{شمارش}
 
-\پاراگراف{}
 شما می‌بایست برای نگهداری اطلاعات پیک‌ها از آرایه‌های یک بعدی استفاده کنید و اندازه این آرایه‌ها را ثابت در نظر بگیرید (مثلا ۱۰۰). از آنجایی که هنوز راهی برای نگهداری چند فیلد به صورت همزمان در یک ساختمان داده‌ای نخوانده‌ایم، شما می‌بایست برای هر یک از فیلدهای پیک از یک آرایه جداگانه استفاده کنید (این مورد را بیشتر توضیح خواهیم داد).
 برای هر پیک به اطلاعات زیر نیاز داریم:
 \شروع{فقرات}
@@ -26,28 +22,25 @@
 \فقره شماره تماس - عدد صحیح - دقیقا ۱۰ رقمی (بدون احتساب صفر اول)
 \پایان{فقرات}
 
-\پاراگراف{}
 شما می‌بایست این اطلاعات را از کاربر گرفته و بعد از اعمال صحت‌سنجی، آن‌ را ذخیره کنید. برای نگهداری این اطلاعات همانطور که گفته شد نیاز به استفاده همزمان از چند آرایه دارید. یعنی:
+
 \begin{latin}
-\begin{lstlisting}[language=c]
+\begin{minted}{c}
 #define MAX 100
 
 int identities[MAX];
 int phones[MAX];
 int status[MAX];
-\end{lstlisting}
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 در نظر داشته باشید که شما می‌بایست در زمان ذخیره پیک $i$ام، شماره تماس ایشان را در آرایه مربوطه و در خانه $i$ام و به همین ترتیب کد ملی ایشان را در آرایه مربوطه و در خانه $i$ام نگهداری کنید و به همین ترتیب به این اطلاعات دسترسی داشته باشید.
 
-\پاراگراف{}
 از آنجایی که طول آرایه ثابت است ما حداکثر تعداد مشخصی از پیک‌ها را می‌توانیم پشتیبانی کنیم اما در نظر داشته باشید که امکان حذف یک پیک نیز وجود دارد، پس شما می‌بایست به نحوی این آرایه را مدیریت کنید که بعد از حذف یک پیک بتوان از خانه‌ی آن برای نگهداری اطلاعات سایر پیک‌ها استفاده کرد.
 برای این کار به عنوان مثال می‌توانید همه خانه‌های بعد از آن را یک واحد به سمت چپ حرکت بدهید تا آن خانه خالی، پر شده و یک خانه خالی در انتهای آرایه ایجاد شود.
 
 \زیرقسمت{سفارشات}
 
-\پاراگراف{}
 مدیر سامانه می‌تواند در سامانه آغاز و پایان یک سفارش را ثبت کند. در زمان ثبت سفارش می‌بایست یک پیک تصادفی از میان پیک‌های فعال به سفارش تخصیص پیدا کند. در نظر داشته باشید این پیک انتخابی تا زمانی که کاربر دستور پایان سفارش را نزده، غیرفعال خواهد بود.
 هر سفارش یک شناسه‌ی تصادفی دارد که می‌بایست هنگام شروع سفارش ساخته شده و به آن تخصیص یابد و به کاربر نیز نمایش داده شود. سفارش‌ها می‌بایست تا زمان پایان، نگهداری شوند و پس از پایان سفارش، پیکِ سفارش به حالت فعال برگشته و سفارش از لیست سفارشات پاک خواهد شد. دقت داشته باشید برای پیاده‌سازی لیست سفارشات نیز می‌بایست از مشابه آنچه برای پیک‌ها گفته شد، استفاده کنید.
 فیلدهای زیر برای هر سفارش متصور است:
@@ -56,54 +49,48 @@ int status[MAX];
 \فقره کد ملی پیک سفارش
 \پایان{فقرات}
 
-
 \زیرقسمت{رویه اجرا}
 روند اجرای برنامه به شرح زیر است:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    1) Couriers
-    2) Orders
-    3) Quit
-\end{lstlisting}
+1) Couriers
+2) Orders
+3) Quit
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 در ابتدا منو فوق نمایش داده می‌شود. در این منو مدیر می‌تواند وارد یکی از زیر منوهای مربوط به پیک‌ها یا سفارشات شود.
 در نظر داشته باشید که در ابتدای منو تعداد پیک‌های آماده، تعداد کل پیک‌ها، تعداد سفارشات در دست اقدام و تعداد کل سفارشات به اتمام رسیده نمایش داده میشود.
 
-\پاراگراف{}
 در صورتی که کاربر در هر یک از مراحل عددی خارج از اعداد منو را انتخاب کند، می‌بایست هیچ اتفاقی رخ ندهد.
 
-\پاراگراف{}
 در صورتی که مدیر وارد منو پیک‌ها شود با منو زیر رو به رو خواهد شد:
 
-
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    1) Add
-    2) Remove
-    3) Activate
-    4) Deactivate
-    5) Back
-\end{lstlisting}
+1) Add
+2) Remove
+3) Activate
+4) Deactivate
+5) Back
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 برای این منو اعمال زیر را داریم:
 
 \شروع{شمارش}
@@ -114,26 +101,24 @@ int status[MAX];
 \فقره بازگشت: بازگشت به منو اصلی
 \پایان{شمارش}
 
-\پاراگراف{}
 در صورتی که مدیر وارد منو سفارش‌ها شود با منو زیر رو به رو خواهد شد:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    1) Start
-    2) Stop
-    3) List
-    4) Back
-\end{lstlisting}
+1) Start
+2) Stop
+3) List
+4) Back
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 برای این منو اعمال زیر را داریم:
 
 \شروع{شمارش}
@@ -143,128 +128,124 @@ int status[MAX];
 \فقره بازگشت: بازگشت به منو اصلی
 \پایان{شمارش}
 
-\پاراگراف{}
 در اینجا مدیر سامانه قصد ایجاد یک پیک را دارد:
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    ID: 0017784646
-    Phone: 09121234567
-\end{lstlisting}
+ID: 0017784646
+Phone: 09121234567
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 در صورت موفقیت آمیز بودن، منو پیک‌ها با مقادیر جدید برای \متن‌لاتین{available couriers} و \متن‌لاتین{total couriers} نمایش داده می‌شود.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 1
-    total couriers = 1
-    on-going orders = 0
-    finished orders = 0
+available couriers = 1
+total couriers = 1
+on-going orders = 0
+finished orders = 0
 
-    1) Add
-    2) Remove
-    3) Activate
-    4) Deactivate
-    5) Back
-\end{lstlisting}
+1) Add
+2) Remove
+3) Activate
+4) Deactivate
+5) Back
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 در صورتی که اطلاعات وارد شده صحیح نباشند، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو پیک‌ها می‌گردد.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    ID: 0017784646
-    Phone: 091212345671
+ID: 0017784646
+Phone: 091212345671
 
-    Invalid phone number, please try again
-\end{lstlisting}
+Invalid phone number, please try again
+\end{minted}
 \end{latin}
 
-\پاراگراف{}
 مدیر سیستم قصد حذف یک پیک با شناسه‌ی ۰۰۱۷۷۸۴۶۴۶ را دارد.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 1
-    total couriers = 1
-    on-going orders = 0
-    finished orders = 0
+available couriers = 1
+total couriers = 1
+on-going orders = 0
+finished orders = 0
 
-    ID: 0017784646
+ID: 0017784646
 
-\end{lstlisting}
+\end{minted}
 \end{latin}
 
 در صورت موفقیت آمیز بودن، منو پیک‌ها با مقادیر جدید برای \متن‌لاتین{available couriers} و \متن‌لاتین{total couriers} نمایش داده می‌شود.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    1) Add
-    2) Remove
-    3) Activate
-    4) Deactivate
-    5) Back
-\end{lstlisting}
+1) Add
+2) Remove
+3) Activate
+4) Deactivate
+5) Back
+\end{minted}
 \end{latin}
 
 در صورتی که پیکی با شناسه‌ی داده شده وجود نداشته باشد، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو پیک‌ها می‌گردد.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 0
-    on-going orders = 0
-    finished orders = 0
+available couriers = 0
+total couriers = 0
+on-going orders = 0
+finished orders = 0
 
-    ID: 0017784646
+ID: 0017784646
 
-    There is no courier with given ID
-\end{lstlisting}
+There is no courier with given ID
+\end{minted}
 \end{latin}
 
 در صورتی که کار بخواهد یک سفارش جدید ایجاد کند، یک راننده تصادفی انتخاب شده، به صورت غیرفعال درآمده و در نهایت با یک شناسه تصادفی سفارش ساخته می‌شود، در ادامه کاربر به منو سفارشات باز می‌گردد.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 1
-    on-going orders = 1
-    finished orders = 0
+available couriers = 0
+total couriers = 1
+on-going orders = 1
+finished orders = 0
 
-    Courier ID: 0017784646
-    ID: 1234
+Courier ID: 0017784646
+ID: 1234
 
 \end{lstlisting}
 \end{latin}
@@ -272,56 +253,56 @@ int status[MAX];
 در صورتی که در زمان ساخت سفارش پیکی وجود نداشته باشد، یک پیام مناسب به کاربر نمایش داده شده و کاربر وارد منو سفارش‌ها می‌شود.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 1
-    on-going orders = 1
-    finished orders = 0
+available couriers = 0
+total couriers = 1
+on-going orders = 1
+finished orders = 0
 
-    There is no available courier for new order
-\end{lstlisting}
+There is no available courier for new order
+\end{minted}
 \end{latin}
 
 در این قسمت، کاربر لیست سفارشات را گرفته است. طول این لیست با مقدار \متن‌لاتین{on-going orders} برابر است. در این قسمت فرض شده است ما دو پیک داشتیم، بنابراین هیچ پیک فعالی وجود ندارد چرا که هر دو پیک در حال حمل سفارش می‌باشند.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 0
-    total couriers = 2
-    on-going orders = 2
-    finished orders = 0
+available couriers = 0
+total couriers = 2
+on-going orders = 2
+finished orders = 0
 
-    Order 1)
-    Courier ID: 0017784646
-    ID: 1234
+Order 1)
+Courier ID: 0017784646
+ID: 1234
 
-    Order 2)
-    Courier ID: 0017784647
-    ID: 10
+Order 2)
+Courier ID: 0017784647
+ID: 10
 
-\end{lstlisting}
+\end{minted}
 \end{latin}
 
 در این قسمت، کاربر یک سفارش را خاتمه داده است. دقت داشته باشید که بعد از خاتمه یک سفارش مقدار \متن‌لاتین{on-going orders} و \متن‌لاتین{finished orders} به روزرسانی خواهند شد. در اینجا یک پیک از دو پیک فعال شده است چرا که سفارش خود را به اتمام رسانده است.
 
 \begin{latin}
-\begin{lstlisting}[]
-    Welcome to bodo food, manager
+\begin{minted}{output}
+Welcome to bodo food, manager
 
-    available couriers = 1
-    total couriers = 2
-    on-going orders = 1
-    finished orders = 1
+available couriers = 1
+total couriers = 2
+on-going orders = 1
+finished orders = 1
 
-    1) Start
-    2) Stop
-    3) List
-    4) Back
-\end{lstlisting}
+1) Start
+2) Stop
+3) List
+4) Back
+\end{minted}
 \end{latin}
 
 \زیرقسمت{نکات پیاده‌سازی}
@@ -343,6 +324,3 @@ int status[MAX];
     \فقره نمایش شماره همراه راننده در لیست سفارشات
     \فقره در هنگام خاتمه سفارش، زمان سپری شده از آغاز تا پایان سفارش نمایش داده شود. (در نظر داشته باشید برای انجام این قسمت به چیزی بیشتر از آنچه در کلاس آموخته‌ایم نیاز خواهید داشت)
 \پایان{فقرات}
-
-
-\end{document}
