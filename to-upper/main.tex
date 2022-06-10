@@ -1,46 +1,36 @@
-\documentclass[../main.tex]{subfiles}
+\قسمت{رشته بزرگ کردن}
 
-\begin{document}
-\section{رشته بزرگ کردن}
-\paragraph{}
 تابع زیر یک رشته متشکل از حروف بزرگ، کوچک و اعداد انگلیسی را گرفته
 و تمامی حروف آن را بزرگ می‌کند. نتیجه نهایی در قالب یک رشته برای کاربر بازگشت داده می‌شود.
 در نظر داشته باشید که رشته‌ی ورودی کاربر نباید عوض شود.
 رشته‌ی خروجی می‌بایست حافظه‌ای دقیقا برابر با اندازه رشته‌ی اولیه اشغال کند.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    char *to_upper(char *input) {
-        // your code goes here
-    }
-\end{lstlisting}
+\begin{minted}{c}
+char *to_upper(char *input) {
+    // your code goes here
+}
+\end{minted}
 \end{latin}
 
 برای درک بهتر از عملکرد تابع به مثال‌های زیر توجه کنید:
 
 \begin{latin}
-\begin{verbatim}
+\begin{minted}{output}
     Input: aAaA
     Output: AAAA
-\end{verbatim}
 
-\begin{verbatim}
     Input: abcd
     Output: ABCD
-\end{verbatim}
 
-\begin{verbatim}
     Input: aaBB
     Output: AABB
-\end{verbatim}
 
-\begin{verbatim}
     Input: aaBB10a
     Output: AABB10A
-\end{verbatim}
+\end{minted}
 \end{latin}
 
-\paragraph{}
 ۴ نمره
 
 \end{document}
