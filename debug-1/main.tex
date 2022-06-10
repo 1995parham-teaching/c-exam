@@ -1,59 +1,50 @@
-\documentclass[../main.tex]{subfiles}
+\قسمت{خطایابی ۱}
 
-\begin{document}
-\section{خطایابی ۱}
-\paragraph{}
 محمد قصد دارد تابعی بنویسد که با دریافت دو مجموعه اجتماع آن‌ها را محاسبه کند.
 برای اینکار تابع محمد دو آرایه را ورودی گرفته است
 و یک آرایه نیز برای نوشتن خروجی از کاربر گرفته شده است.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    int union(int* a, int* b, int* r) {
-        int a_size = sizeof(a) / sizeof(int);
-        int b_size = sizeof(b) / sizeof(int);
+\begin{minted}{c}
+int union(int* a, int* b, int* r) {
+    int a_size = sizeof(a) / sizeof(int);
+    int b_size = sizeof(b) / sizeof(int);
 
-        int r_size = 0;
+    int r_size = 0;
 
-        for (int i = 0; i < b_size; i++) {
-            r[r_size++] = b[i];
-        }
-
-        for (int i = 0; i < a_size; i++) {
-            int flag = 0;
-            for (int j = 0; j < b_size; j++) {
-                if (a[i] == b[j]) {
-                    flag = 1;
-                    break;
-                }
-            }
-            if (flag == 0) {
-                r[r_size++] = a[i];
-            }
-        }
-
-        return r_size;
+    for (int i = 0; i < b_size; i++) {
+        r[r_size++] = b[i];
     }
-\end{lstlisting}
+
+    for (int i = 0; i < a_size; i++) {
+        int flag = 0;
+        for (int j = 0; j < b_size; j++) {
+            if (a[i] == b[j]) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            r[r_size++] = a[i];
+        }
+    }
+
+    return r_size;
+}
+\end{minted}
 \end{latin}
 
-\paragraph{سوال اول}
-چرا خروجی تابع محمد به شکل \lr{int}
-می‌باشد؟ اگر خروجی به شکل \lr{void} باشد چه مشکلی برای تابع فراخوانی کننده به وجود می‌آید؟
+چرا خروجی تابع محمد به شکل \متن‌لاتین{int} است؟
+اگر خروجی به شکل \متن‌لاتین{void} باشد چه مشکلی برای تابع فراخوانی کننده به وجود می‌آید؟
 
-\paragraph{}
 ۲ نمره
 
-\paragraph{سوال دوم}
 خطای کد را توضیح داده و آن را اصلاح کنید.
 
-\paragraph{}
 ۳ نمره
 
-\paragraph{سوال سوم}
 روش محمد برای محاسبه اجتماع را در یک خط توضیح دهید.
 
-\paragraph{}
 ۲ نمره
 
 \end{document}

@@ -45,6 +45,7 @@
 
 \eqcommand{جزئیات‌آزمون}{examdetails}
 \eqcommand{پایان‌ساز}{makefooter}
+\eqcommand{تارنما}{href}
 
 \define@key{exam}{دانشگاه}[]{\gdef\@university{#1}}
 \define@key{exam}{ترم}[]{\gdef\@semester{#1}}
