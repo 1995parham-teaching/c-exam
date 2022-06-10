@@ -1,31 +1,31 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{دانشجویان مرتب}
-\paragraph{}
-تابع زیر را به شکلی تکمیل کنید که با دریافت آرایه‌ای از دانشجویان
-آن را به صورت مرتب شده بازگرداند.
+\قسمت{دانشجویان مرتب}
+
+تابع زیر را به شکلی تکمیل کنید که با دریافت آرایه‌ای از دانشجویان آن‌ها را مرتب کند.
+دقت داشته باشید که آرایه‌ی دریافتی باید مرتب شود و نباید آرایه‌ی جدیدی اختصاص پیدا کند.
 مرتب‌سازی می‌بایست براساس شماره دانشجویی و با استفاده از تابع
-\lr{\textit{qsort}}
+\متن‌لاتین{\متن‌ایتالیک{qsort}}
 صورت بپذیرد.
 اگر به نظرتان امضا تابع نیاز به تغییر دارد با ذکر علت آن را تغییر دهید.
 
 \begin{latin}
-\begin{lstlisting}[language=c]
-    struct student {
-        int grade;
-        int id;
-        char name[200];
-    }:
+\begin{minted}{c}
 
-    void students_sort(struct student *students,
-        int students_len) {
-        // your code goes here
-    }
-\end{lstlisting}
+struct student {
+    int grade;
+    int id;
+    char name[200];
+}:
+
+void students_sort(struct student *students,
+    int students_len) {
+    // your code goes here
+}
+\end{minted}
 \end{latin}
 
-\paragraph{}
-۴ نمره
+۳ نمره
 
 \end{document}
