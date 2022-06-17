@@ -5,6 +5,7 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{enumerate}
+\RequirePackage{tagging}
 \RequirePackage{keyval}
 
 \LoadClass[]{article}
@@ -30,15 +31,20 @@
 }
 \eqenvironment{امتیازی}{extra}
 
-\newcommand\answer[2][]{\todo[inline, caption={2do}, #1]{
-    \begin{persian}
-    \begin{minipage}{\textwidth-4pt}
-      پاسخ.
-      #2
-    \end{minipage}
-    \end{persian}
-  }
+\newenvironment{answer}
+{
+  \taggedblock{پاسخ}
+  \vspace{5mm}
+  \color{WildStrawberry}
+  \rule{2cm}{0.5pt}\\
+  \متن‌سیاه{پاسخ.}\\
 }
+{
+  \endtaggedblock
+}
+\eqenvironment{پاسخ}{answer}
+\eqcommand{استفاده‌ازتگ}{usetag}
+
 
 \setlength{\parindent}{0pt}
 \renewcommand{\baselinestretch}{1.5}
