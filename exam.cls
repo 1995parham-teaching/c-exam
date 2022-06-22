@@ -32,15 +32,17 @@
 \eqenvironment{امتیازی}{extra}
 
 \newenvironment{answer}
-{
+{%
   \taggedblock{پاسخ}
   \vspace{5mm}
-  \color{WildStrawberry}
-  \rule{2cm}{0.5pt}\\
-  \متن‌سیاه{پاسخ.}\\
+  {%
+    \color{WildStrawberry}
+    \rule{\linewidth}{0.5pt}\\
+    \متن‌سیاه{پاسخ.}\\
+  }
 }
-{
-  \endtaggedblock
+{%
+  \endtaggedblock%
 }
 \eqenvironment{پاسخ}{answer}
 \eqcommand{استفاده‌ازتگ}{usetag}
