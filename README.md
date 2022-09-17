@@ -1,4 +1,4 @@
-# c-exam
+# C Exam 📘
 
 ## Introduction
 
