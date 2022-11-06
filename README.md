@@ -9,5 +9,5 @@ Questions for C Final/Midterm Exams. Each problem has its sepcific folder and by
 Following package is required for loading problems into `main.tex`.
 
 ```sh
-tlmgr install tagging minted xepersian bdid
+tlmgr install tagging minted xepersian bidi
 ```
